@@ -1,0 +1,157 @@
+:root {
+  --app-bg: #f4f6fb;
+  --app-border: #e3e8f0;
+  --app-text-muted: #6c757d;
+  --app-complete: #198754;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: #1f2430;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.app-container {
+  max-width: 720px;
+}
+
+.app-header h1 {
+  letter-spacing: 0.2px;
+}
+
+.app-card {
+  border: 1px solid var(--app-border);
+  border-radius: 0.9rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.task-item {
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--app-border);
+  border-left: 4px solid #0d6efd;
+  border-radius: 0.6rem;
+  background-color: #fff;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.task-item:hover {
+  background-color: #f8f9fc;
+}
+
+.task-check {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0;
+  cursor: pointer;
+}
+
+.task-text {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.task-completed {
+  border-left-color: var(--app-complete);
+  background-color: #f6fbf8;
+}
+
+.task-completed .task-text {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: var(--app-text-muted);
+}
+
+.task-actions .btn {
+  --bs-btn-padding-y: 0.15rem;
+  --bs-btn-padding-x: 0.55rem;
+  --bs-btn-font-size: 0.8rem;
+}
+
+.task-editing {
+  border-left-color: #ffc107;
+  background-color: #fffdf5;
+}
+
+.task-edit-input {
+  min-width: 0;
+}
+
+.empty-state {
+  padding: 1.5rem 0.5rem;
+  border: 1px dashed var(--app-border);
+  border-radius: 0.6rem;
+}
+
+.filter-btn.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+.stat-badge {
+  border: 1px solid var(--app-border);
+  background-color: #fff;
+  font-weight: 500;
+  color: #495057;
+}
+
+.stat-pending strong {
+  color: #b58105;
+}
+
+.stat-completed strong {
+  color: var(--app-complete);
+}
+
+:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+@media (max-width: 575.98px) {
+  .app-header h1 {
+    font-size: 1.35rem;
+  }
+
+  #currentDate {
+    font-size: 0.9rem;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+    padding: 0.65rem 0.7rem;
+  }
+
+  .task-text {
+    flex: 1 1 auto;
+  }
+
+  .task-actions {
+    flex: 1 1 100%;
+    margin-top: 0.25rem;
+  }
+
+  .task-actions .btn {
+    flex: 1 1 0;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .filter-group .filter-btn {
+    flex: 1 1 0;
+    white-space: nowrap;
+  }
+
+  .list-header {
+    align-items: stretch;
+  }
+}

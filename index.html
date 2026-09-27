@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Task Planner</title>
+  <meta name="description" content="A simple daily task planner built with HTML5, CSS3, Bootstrap 5 and JavaScript.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container app-container py-4 py-md-5">
+
+    <header class="app-header text-center mb-4">
+      <h1 class="h3 fw-bold mb-1">Daily Task Planner</h1>
+      <p class="text-secondary mb-0" id="currentDate"></p>
+    </header>
+
+    <section class="card app-card shadow-sm mb-4">
+      <div class="card-body p-3 p-md-4">
+        <form id="taskForm" novalidate>
+          <label for="taskInput" class="form-label fw-semibold">Add a new task</label>
+          <div class="input-group">
+            <input
+              type="text"
+              id="taskInput"
+              class="form-control"
+              placeholder="e.g. Revise JavaScript closures"
+              maxlength="200"
+              autocomplete="off"
+              aria-describedby="taskHelp taskError">
+            <button type="submit" class="btn btn-primary" id="addTaskBtn">Add</button>
+          </div>
+          <div class="invalid-feedback" id="taskError" role="alert"></div>
+          <div class="form-text" id="taskHelp">Press Enter to add the task without clicking the button.</div>
+        </form>
+      </div>
+    </section>
+
+    <section class="card app-card shadow-sm">
+      <div class="card-body p-3 p-md-4">
+
+        <div class="list-header d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-3">
+          <div class="stats d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill stat-badge stat-total">Total: <strong id="statTotal">0</strong></span>
+            <span class="badge rounded-pill stat-badge stat-pending">Pending: <strong id="statPending">0</strong></span>
+            <span class="badge rounded-pill stat-badge stat-completed">Completed: <strong id="statCompleted">0</strong></span>
+          </div>
+
+          <div class="btn-group btn-group-sm filter-group" role="group" aria-label="Filter tasks">
+            <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="all" aria-pressed="true">All (<span id="countAll">0</span>)</button>
+            <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="pending" aria-pressed="false">Pending (<span id="countPending">0</span>)</button>
+            <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="completed" aria-pressed="false">Completed (<span id="countCompleted">0</span>)</button>
+          </div>
+        </div>
+
+        <ul class="task-list list-unstyled mb-0" id="taskList" aria-label="Task list"></ul>
+
+        <div class="empty-state text-center d-none" id="emptyState">
+          <p class="text-secondary mb-0" id="emptyText">No tasks yet. Add your first task above.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
